@@ -110,7 +110,6 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
-        <button className="btn btn-outline">Treasury 100 ARB</button>
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>

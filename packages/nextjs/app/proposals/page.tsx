@@ -31,8 +31,8 @@ const ProposalsPage = () => {
               <p>{project.title}</p>
               <div className="card-actions justify-end">
                 {project.tags.map(tag => (
-                  <div className="badge badge-secondary" key={1}>
-                    {tag}
+                  <div className="badge badge-secondary" key={tag.id}>
+                    {tag.tag}
                   </div>
                 ))}
               </div>

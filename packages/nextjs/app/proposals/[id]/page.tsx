@@ -1,5 +1,7 @@
 import React from "react";
+import Link from "next/link";
 import proposalMockData from "../../../mock/proposal-data";
+import SubmitVoteButton from "../_components/submit-vote";
 import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
 import { LinkIcon } from "@heroicons/react/24/outline";
 
@@ -23,7 +25,7 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
           </p>
           <p>Raising: {proposalMockData[params.id - 1].raising} DAI</p>
         </div>
-        <button className="btn btn-primary">Submit Vote</button>
+        <SubmitVoteButton />
       </div>
 
       <div className="grid grid-cols-3">
@@ -58,7 +60,7 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
 
       <div role="tablist" className="tabs tabs-bordered">
         <input type="radio" name="my_tabs_1" role="tab" className="tab text-lg" aria-label="About" defaultChecked />
-        <div role="tabpanel" className="tab-content p-10">
+        <div role="tabpanel" className="tab-content pt-10">
           <div className="grid grid-cols-3 gap-4">
             <div className="flex items-center space-x-2">
               <LinkIcon className="h-6 w-6" />
@@ -77,7 +79,7 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
         </div>
 
         <input type="radio" name="my_tabs_1" role="tab" className="tab text-lg" aria-label="Milestones" />
-        <div role="tabpanel" className="tab-content p-10">
+        <div role="tabpanel" className="tab-content pt-10">
           {proposalMockData[params.id - 1].milestones.map(m => {
             return (
               <div key={m.id} className="flex items-center space-x-4 py-4">
@@ -101,8 +103,41 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
         </div>
 
         <input type="radio" name="my_tabs_1" role="tab" className="tab text-lg" aria-label="Rounds" />
-        <div role="tabpanel" className="tab-content p-10">
-          Tab content 3
+        <div role="tabpanel" className="tab-content pt-10">
+          <div>
+            <h3 className="text-md text-gray-500">Active Round</h3>
+            <div>beam stream</div>
+            <div className="divider"></div>
+            <h3 className="text-md text-gray-500">Past Rounds</h3>
+            <div className="overflow-x-auto">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Pool</th>
+                    <th>Stream</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {proposalMockData[params.id - 1].past_rounds.map(r => {
+                    return (
+                      <tr key={r.id}>
+                        <th>{r.id}</th>
+                        <td>{r.pool}</td>
+                        <td>
+                          <Link href={r.stream} className="link">
+                            Stream Link
+                          </Link>
+                        </td>
+                        <td>{r.duration}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

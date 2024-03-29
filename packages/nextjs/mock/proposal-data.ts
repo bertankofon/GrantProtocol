@@ -44,7 +44,24 @@ const proposalMockData = [
       twitter: "@socialdex",
       github: "socialdex",
     },
-    tags: ["Pre-Seed", "SocialFi"],
+    tags: [
+      {
+        id: 1,
+        tag: "Pre-Seed",
+      },
+      {
+        id: 2,
+        tag: "SocialFi",
+      },
+    ],
+    past_rounds: [
+      {
+        id: 1,
+        pool: "zkPool",
+        stream: "https://app.sablier.com/stream/LL2-11155111-897/",
+        duration: `${new Date("2023-02-01").toLocaleDateString()} - ${new Date("2023-03-15").toLocaleDateString()}`,
+      },
+    ],
   },
   {
     id: 2,
@@ -91,7 +108,24 @@ const proposalMockData = [
       twitter: "@supplychain360",
       github: "supplychain360",
     },
-    tags: ["Seed", "IoT"],
+    tags: [
+      {
+        id: 1,
+        tag: "Seed",
+      },
+      {
+        id: 2,
+        tag: "IoT",
+      },
+    ],
+    past_rounds: [
+      {
+        id: 1,
+        pool: "Decentralized Social Media Platform",
+        stream: "SocialDeX",
+        duration: "0x4b7866e717f27Fa1C38313D25F647aE0598571BD",
+      },
+    ],
   },
   {
     id: 3,
@@ -138,7 +172,24 @@ const proposalMockData = [
       twitter: "@identityx",
       github: "identityx",
     },
-    tags: ["Pre-Seed", "Identity"],
+    tags: [
+      {
+        id: 1,
+        tag: "Pre-Seed",
+      },
+      {
+        id: 2,
+        tag: "Identity",
+      },
+    ],
+    past_rounds: [
+      {
+        id: 1,
+        pool: "Decentralized Social Media Platform",
+        stream: "SocialDeX",
+        duration: "0x4b7866e717f27Fa1C38313D25F647aE0598571BD",
+      },
+    ],
   },
 ];
 

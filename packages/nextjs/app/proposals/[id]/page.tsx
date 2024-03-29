@@ -28,8 +28,8 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
         <SubmitVoteButton />
       </div>
 
-      <div className="grid grid-cols-3">
-        <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="grid grid-cols-2 gap-6">
+        <div className="card w-full bg-base-100 shadow-xl">
           <div className="card-body">
             <div className="flex flex-row items-center justify-between">
               <h2 className="card-title text-success w-full">For</h2>
@@ -38,7 +38,7 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
             <progress className="progress progress-success w-full" value="60" max="100"></progress>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl">
           <div className="card-body">
             <div className="flex flex-row items-center justify-between">
               <h2 className="card-title text-error w-full">Against</h2>
@@ -47,7 +47,7 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
             <progress className="progress progress-error w-full" value="30" max="100"></progress>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        {/* <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">
             <div className="flex flex-row items-center justify-between">
               <h2 className="card-title w-full">Abstain</h2>
@@ -55,7 +55,7 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
             </div>
             <progress className="progress w-full" value="10" max="100"></progress>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div role="tablist" className="tabs tabs-bordered">

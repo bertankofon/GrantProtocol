@@ -31,12 +31,6 @@ const SubmitVoteButton = () => {
               <input type="radio" name="radio-10" className="radio checked:bg-red-500" />
             </label>
           </div>
-          <div className="form-control">
-            <label className="label cursor-pointer">
-              <span className="label-text">Abstain</span>
-              <input type="radio" name="radio-10" className="radio checked:bg-gray-500" />
-            </label>
-          </div>
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}

@@ -1,6 +1,8 @@
 "use client";
 
+import { Input } from "../../../components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../../components/ui/select";
+import { Textarea } from "../../../components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,17 +11,28 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 
 const formSchema = z.object({
   chain: z.string(),
+  project_name: z.string(),
+  project_link: z.string().url(),
+  project_description: z.string(),
+  grant_duration: z.string(),
+  grant_amount: z.string(),
+  grant_distribution: z.string(),
 });
 
-export default function ProfileForm() {
+export default function ProposalForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       chain: "ethereum",
+      project_name: "",
+      project_link: "",
+      project_description: "",
+      grant_duration: "",
+      grant_amount: "",
+      grant_distribution: "linear",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
@@ -33,11 +46,11 @@ export default function ProfileForm() {
             name="chain"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Which chain you are building?</FormLabel>
+                <FormLabel>Project Deployment Network</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a verified email to display" />
+                      <SelectValue placeholder="Select a chain..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -50,6 +63,84 @@ export default function ProfileForm() {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name="project_name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Project Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="What's the project name?" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="project_link"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Project website</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your project's website" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="project_description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Project Description</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="What is the project about and what kind of impact does it aim to have?"
+                    className="resize-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="grant_amount"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Grant Amount</FormLabel>
+                <FormControl>
+                  <Input placeholder="How much grant you want?" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="grant_distribution"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Grant Distribution</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="How do you want grant to be distributed?" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="linear">Linear</SelectItem>
+                    <SelectItem value="dynamic">Dynamic</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
           <Button type="submit">Submit</Button>
         </form>
       </Form>

@@ -48,19 +48,22 @@ const ProposalsPage = () => {
       </div>
       <div className="divider"></div>
       <div className="pb-10">
-        <select className="select select-bordered w-full max-w-xs">
-          <option disabled selected>
-            Filter proposals
-          </option>
-          <option>Han Solo</option>
-          <option>Greedo</option>
+        <select className="select select-bordered w-full max-w-xs" defaultValue={""}>
+          <option>Active</option>
+          <option>Funded</option>
+          <option>Rejected</option>
         </select>
       </div>
       <div className="grid gap-y-6 grid-cols-3">
         {mock_projects.map(project => (
           <Link className="card w-96 bg-base-100 shadow-xl" key={project.id} href={`/proposals/${project.id}`}>
             <figure>
-              <Image src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+              <Image
+                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                alt="Shoes"
+                width={384}
+                height={227}
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{project.name}</h2>

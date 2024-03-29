@@ -15,7 +15,14 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["daisyui.com"],
+    remotePatterns: [
+      {
+        hostname: "source.unsplash.com",
+      },
+      {
+        hostname: "daisyui.com",
+      },
+    ],
   },
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { forwardRef, useRef } from "react";
+import Image from "next/image";
 import { cn } from "../../lib/utils";
 import { FundItLogo } from "../assets/FundItLogo";
 import { AnimatedBeam } from "./animated-beam";
@@ -11,7 +12,7 @@ const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React
     return (
       <div
         ref={ref}
-        className={cn("z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-white p-3", className)}
+        className={cn("z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 bg-white p-3", className)}
       >
         {children}
       </div>
@@ -36,24 +37,24 @@ export function AnimatedBeamDemo() {
       <div className="flex h-full w-full flex-row items-stretch justify-between">
         <div className="flex flex-col justify-center gap-10">
           <Circle ref={div1Ref}>
-            <HomeIcon className="h-6 w-6" />
+            <Image src="/arb.png" className="h-8 w-8" alt="arb" width={40} height={40} />
           </Circle>
           <Circle ref={div2Ref}>
-            <HomeIcon className="h-6 w-6" />
+            <Image src="/sab.png" className="h-8 w-8" alt="arb" width={40} height={40} />
           </Circle>
           <Circle ref={div3Ref}>
-            <HomeIcon className="h-6 w-6" />
+            <Image src="/base.png" className="h-8 w-8" alt="arb" width={40} height={40} />
           </Circle>
           <Circle ref={div4Ref}>
-            <HomeIcon className="h-6 w-6" />
+            <Image src="/bnb.png" className="h-8 w-8" alt="arb" width={40} height={40} />
           </Circle>
           <Circle ref={div5Ref}>
             <HomeIcon className="h-6 w-6" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
-          <Circle ref={div6Ref} className="h-16 w-16">
-            <FundItLogo className="h-6 w-6" />
+          <Circle ref={div6Ref} className="h-20 w-20">
+            <FundItLogo className="h-10 w-10" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">

@@ -25,7 +25,14 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
           </p>
           <p>Raising: {proposalMockData[params.id - 1].raising} DAI</p>
         </div>
-        <SubmitVoteButton />
+        {proposalMockData[params.id - 1].status === "Approved" ? (
+          <div className="space-x-2">
+            <button className="btn btn-primary">Approve Stream</button>
+            <button className="btn btn-primary">Start Stream</button>
+          </div>
+        ) : (
+          <SubmitVoteButton />
+        )}
       </div>
 
       <div className="grid grid-cols-2 gap-6">

@@ -1,80 +1,31 @@
-# Grant Protocol created using Scaffold-ETH 2
+# FundIt!
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+## Vision
+FundIt! aims to bridge the gap between visionary developers and the resources needed to bring new ideas/projects to life. Our mission is to democratize access to funding, ensuring that brilliant ideas receive the support they require, irrespective of the project team's size or network.
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+## Problems Solved
+- **Access to Funding**: Many promising projects struggle to secure funding through traditional venture capital or grants due to the niche and complex nature of their work.
+- **Community Involvement**: The decision-making process for funding often lacks community involvement, leading to a disconnect between what the community values and what gets funded.
+- **Transparency in Funding**: The opacity of grant allocation processes can deter talented developers from applying, unsure of whether their proposals will be fairly considered.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+## Solution Approach
+FundIt addresses these challenges by:
+- **Democratizing Funding**: By allowing anyone to contribute to the funding pool with ERC20 tokens, we've broadened the base of potential supporters beyond traditional funding entities.
+- **Empowering Contributors with Voting Rights**: Contributors have a say in which projects are funded, ensuring that community values directly influence funding decisions.
+- **Enhancing Transparency**: The entire process, from contribution to proposal submission and voting, is conducted on-chain, providing unparalleled transparency and trust.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+## Technologies Used
+- **Scaffold-eth2 Toolkit**: Leveraged for rapid development and testing, scaffold-eth2 provided a robust framework for building our dApp, significantly speeding up the iteration cycles.
+- **Sablier for Streaming Payments**: Integration with Sablier enabled us to adopt a novel approach to funding by streaming money to grantees, ensuring continuous support for projects and accountability for milestones reached.
+- **Arbitrum One & Nova**: Utilizing the scalability solutions offered by Arbitrum One and Nova allowed our platform to achieve high transaction throughput while maintaining low costs, crucial for a community-driven funding platform.
+- **Base**: The implementation on Base further emphasizes our commitment to scalability and ensuring that our platform remains accessible and efficient as the Ethereum ecosystem evolves.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+## Build Process
+1. **Initial Conceptualization**: The project started with a clear vision to support projects, identifying key pain points in traditional funding mechanisms.
+2. **Rapid Prototyping with scaffold-eth2**: Using the BuildGuidl's scaffold-eth2 toolkit, we quickly moved from idea to prototype, establishing the core functionalities of funding pools, proposal submissions, and voting.
+3. **Integrating Sablier for Payment Streaming**: To ensure grantees receive funds in a transparent and accountable manner, we integrated Sablier, setting a precedent for how blockchain projects can be funded over time.
+4. **Deployment on Scalable Infrastructure**: Recognizing the importance of scalability and low transaction costs, we deployed our platform on Arbitrum One, Nova, and Base, ensuring our solution is future-proof and capable of handling high volumes of transactions and interactions.
 
-## Requirements
+## How to Contribute/Get Involved
+We welcome contributions from developers, designers, content creators, and anyone enthusiastic about advancing privacy and ZK technologies. Whether it's contributing to the code, participating in funding pools, or spreading the word, every bit of support helps us move closer to our vision. Detailed instructions for contributing can be found in our [Contribution Guide](#).
 
-Before you begin, you need to install the following tools:
-
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
-
-## Quickstart
-
-To get started with Scaffold-ETH 2, follow the steps below:
-
-1. Clone this repo & install dependencies
-
-```
-git clone https://github.com/scaffold-eth/scaffold-eth-2.git
-cd scaffold-eth-2
-yarn install
-```
-
-2. Run a local network in the first terminal:
-
-```
-yarn chain
-```
-
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
-
-3. On a second terminal, deploy the test contract:
-
-```
-yarn deploy
-```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
-
-4. On a third terminal, start your NextJS app:
-
-```
-yarn start
-```
-
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend in `packages/nextjs/pages`
-- Edit your deployment scripts in `packages/hardhat/deploy`
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
-
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.

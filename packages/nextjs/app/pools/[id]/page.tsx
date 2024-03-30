@@ -1,9 +1,29 @@
 import React from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import pools from "../../../mock/pool-data";
+import { POOL_ABI } from "../../../utils/pool";
+import { POOL_CONTRACT } from "../../../utils/pool/contract";
 import ContributeButton from "../components/contribute-button";
+import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 const PoolDetailsPage = ({ params }: { params: { id: number } }) => {
+  const { config } = usePrepareContractWrite({
+    // @ts-ignore
+    addressOrName: POOL_CONTRACT,
+    contractInterface: POOL_ABI,
+    functionName: "contribute",
+    args: [100], // Replace with the desired contribution amount
+  });
+
+  const { isLoading: isMintLoading, isSuccess: isMintStarted, error: mintError } = useContractWrite(config);
+
+  useEffect(() => {
+    console.log("isMintLoading:", isMintLoading);
+    console.log("isMintStarted", isMintStarted);
+    console.log("mintError:", mintError);
+    console.log("___________");
+  }, [isMintLoading, isMintStarted]);
   return (
     <div className="flex flex-col">
       <h1>{pools[params.id - 1].name}</h1>

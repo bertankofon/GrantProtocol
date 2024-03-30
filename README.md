@@ -27,5 +27,4 @@ FundIt addresses these challenges by:
 4. **Deployment on Scalable Infrastructure**: Recognizing the importance of scalability and low transaction costs, we deployed our platform on Arbitrum One, Nova, and Base, ensuring our solution is future-proof and capable of handling high volumes of transactions and interactions.
 
 ## How to Contribute/Get Involved
-We welcome contributions from developers, designers, content creators, and anyone enthusiastic about advancing privacy and ZK technologies. Whether it's contributing to the code, participating in funding pools, or spreading the word, every bit of support helps us move closer to our vision. Detailed instructions for contributing can be found in our [Contribution Guide](#).
-
+We welcome contributions from developers, designers, content creators, and anyone enthusiastic about advancing blockchain technologies. Whether it's contributing to the code, participating in funding pools, or spreading the word, every bit of support helps us move closer to our vision.

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "../../lib/utils";
 import { FundItLogo } from "../assets/FundItLogo";
 import { AnimatedBeam } from "./animated-beam";
-import { HomeIcon } from "@heroicons/react/24/outline";
+import { UserIcon } from "@heroicons/react/24/outline";
 
 const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React.ReactNode }>(
   ({ className, children }, ref) => {
@@ -49,7 +49,7 @@ export function AnimatedBeamDemo() {
             <Image src="/bnb.png" className="h-8 w-8" alt="arb" width={40} height={40} />
           </Circle>
           <Circle ref={div5Ref}>
-            <HomeIcon className="h-6 w-6" />
+            <Image src="/akasha.png" className="h-8 w-8" alt="arb" width={40} height={40} />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
@@ -59,7 +59,7 @@ export function AnimatedBeamDemo() {
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div7Ref}>
-            <HomeIcon className="text-black" />
+            <UserIcon className="text-black" />
           </Circle>
         </div>
       </div>

@@ -12593,6 +12593,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@sablier/v2-core": ^1.1.2
     husky: ~8.0.3
     lint-staged: ~13.2.2
     next: ~14.0.4

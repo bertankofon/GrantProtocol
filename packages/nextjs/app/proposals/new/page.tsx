@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 
 const formSchema = z.object({
   chain: z.string(),
+  project_vertical: z.string(),
   project_name: z.string(),
   project_link: z.string().url(),
   project_description: z.string(),
@@ -24,6 +25,7 @@ export default function ProposalForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       chain: "ethereum",
+      project_vertical: "l2",
       project_name: "",
       project_link: "",
       project_description: "",
@@ -57,6 +59,33 @@ export default function ProposalForm() {
                     <SelectItem value="ethereum">Ethereum</SelectItem>
                     <SelectItem value="arbitrum">Arbitrum</SelectItem>
                     <SelectItem value="polygon">Polygon</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="project_vertical"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>What is your vertical?</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select your vertical..." />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="l2">L2 Solutions</SelectItem>
+                    <SelectItem value="zk">ZK</SelectItem>
+                    <SelectItem value="defi">DeFi</SelectItem>
+                    <SelectItem value="gamefi">GameFi</SelectItem>
+                    <SelectItem value="nft">NFT</SelectItem>
+                    <SelectItem value="socialfi">SocialFi</SelectItem>
+                    <SelectItem value="dao">DAO</SelectItem>
+                    <SelectItem value="public">Public Goods</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />

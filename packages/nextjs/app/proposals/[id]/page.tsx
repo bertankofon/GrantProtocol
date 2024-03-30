@@ -1,13 +1,54 @@
-import React from "react";
+"use client";
+
+import React, { useCallback } from "react";
 import Link from "next/link";
 import proposalMockData from "../../../mock/proposal-data";
+import { Core, ERC20 } from "../../../utils/sablier/models";
+import { BeamStream } from "../_components/beam-stream";
 import SubmitVoteButton from "../_components/submit-vote";
+import useStoreForm, { prefill } from "./store";
 import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
+import _ from "lodash";
+import { useAccount } from "wagmi";
 import { LinkIcon } from "@heroicons/react/24/outline";
 
 // import Image from "next/image";
 
 const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
+  const { isConnected } = useAccount();
+  const { update } = useStoreForm(state => ({
+    error: state.error,
+    logs: state.logs,
+    update: state.api.update,
+  }));
+  const onPrefill = useCallback(() => {
+    update(prefill);
+  }, [update]);
+
+  const onApprove = useCallback(async () => {
+    onPrefill();
+    if (isConnected) {
+      const state = useStoreForm.getState();
+      try {
+        state.api.update({ error: undefined });
+        await ERC20.doApprove("SablierV2LockupLinear", state, state.api.log);
+      } catch (error) {
+        state.api.update({ error: _.toString(error) });
+      }
+    }
+  }, [isConnected, onPrefill]);
+
+  const onCreate = useCallback(async () => {
+    if (isConnected) {
+      const state = useStoreForm.getState();
+      try {
+        state.api.update({ error: undefined });
+        await Core.doCreateLinear(state, state.api.log);
+      } catch (error) {
+        state.api.update({ error: _.toString(error) });
+      }
+    }
+  }, [isConnected]);
   return (
     <div className="flex flex-col space-y-10">
       <div className="flex justify-between items-center">
@@ -25,7 +66,18 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
           </p>
           <p>Raising: {proposalMockData[params.id - 1].raising} DAI</p>
         </div>
-        <SubmitVoteButton />
+        {proposalMockData[params.id - 1].status === "Approved" ? (
+          <div className="space-x-2">
+            <button className="btn btn-primary" onClick={onApprove}>
+              Approve Stream
+            </button>
+            <button className="btn btn-primary" onClick={onCreate}>
+              Start Stream
+            </button>
+          </div>
+        ) : (
+          <SubmitVoteButton />
+        )}
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -106,7 +158,9 @@ const ProposalDetailsPage = ({ params }: { params: { id: number } }) => {
         <div role="tabpanel" className="tab-content pt-10">
           <div>
             <h3 className="text-md text-gray-500">Active Round</h3>
-            <div>beam stream</div>
+            <Link href={"https://app.sablier.com/stream/LL2-11155111-989/"}>
+              <BeamStream />
+            </Link>
             <div className="divider"></div>
             <h3 className="text-md text-gray-500">Past Rounds</h3>
             <div className="overflow-x-auto">
